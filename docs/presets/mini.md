@@ -8,20 +8,24 @@ outline: deep
 
 The basic preset for UnoCSS, with only the most essential utilities.
 
-[Source Code](https://github.com/unocss/unocss/tree/main/packages/preset-mini)
+[Source Code](https://github.com/unocss/unocss/tree/main/packages-presets/preset-mini)
 
 ## Installation
 
 ::: code-group
-  ```bash [pnpm]
-  pnpm add -D @unocss/preset-mini
-  ```
-  ```bash [yarn]
-  yarn add -D @unocss/preset-mini
-  ```
-  ```bash [npm]
-  npm install -D @unocss/preset-mini
-  ```
+
+```bash [pnpm]
+pnpm add -D @unocss/preset-mini
+```
+
+```bash [yarn]
+yarn add -D @unocss/preset-mini
+```
+
+```bash [npm]
+npm install -D @unocss/preset-mini
+```
+
 :::
 
 ```ts [uno.config.ts]
@@ -42,6 +46,7 @@ This preset is included in the `unocss` package, you can also import it from the
 ```ts
 import { presetMini } from 'unocss'
 ```
+
 :::
 
 ## Rules
@@ -66,26 +71,30 @@ will generate:
 }
 ```
 
-To opt-in media query based dark mode, you can use `@dark:` variant:
+#### Media query based dark mode
 
-```html
-<div class="@dark:bg-red:10" />
-```
-
-```css
-@media (prefers-color-scheme: dark) {
-  .\@dark\:bg-red\:10 {
-    background-color: rgb(248 113 113 / 0.1);
-  }
-}
-```
-
-Or set globally with the config for `dark:` variant
+To instead use media query based dark mode globally you can change the config for the `dark:` variant:
 
 ```ts
 presetMini({
   dark: 'media'
 })
+```
+
+Now
+
+```html
+<div class="dark:bg-red:10" />
+```
+
+will generate:
+
+```css
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-red\:10 {
+    background-color: rgb(248 113 113 / 0.1);
+  }
+}
 ```
 
 ### CSS @layer
@@ -113,6 +122,7 @@ will generate:
 ```
 
 ### Theme
+
 You can fully customize your theme property in your config, and UnoCSS will eventually deeply merge it to the default theme.
 
 :::warning
@@ -136,6 +146,7 @@ presetMini({
 ## Options
 
 ### dark
+
 - **Type:** `class | media | DarkModeSelectors`
 - **Default:** `class`
 
@@ -160,24 +171,28 @@ interface DarkModeSelectors {
 ```
 
 ### attributifyPseudo
+
 - **Type:** `Boolean`
 - **Default:** `false`
 
 Generate pseudo selector as `[group=""]` instead of `.group`.
 
 ### variablePrefix
+
 - **Type:** `string`
 - **Default:** `un-`
 
 Prefix for CSS custom properties.
 
 ### prefix
+
 - **Type:** `string | string[]`
 - **Default:** `undefined`
 
 Utils prefix.
 
 ### preflight
+
 - **Type:** `boolean` | `on-demand`
 - **Default:** `true`
 

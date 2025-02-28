@@ -2,8 +2,8 @@ import type { WebFontsOptions } from '@unocss/preset-web-fonts'
 import { createGenerator } from '@unocss/core'
 import presetMini from '@unocss/preset-mini'
 import presetWebFonts from '@unocss/preset-web-fonts'
+import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import { describe, expect, it } from 'vitest'
-import { createLocalFontProcessor } from '../packages/preset-web-fonts/src/local'
 
 const options: WebFontsOptions = {
   provider: 'google',
@@ -45,7 +45,7 @@ it('web-fonts (inline: false)', async () => {
   })
 
   const { css } = await uno.generate(classes)
-  expect(css).toMatchFileSnapshot('./assets/output/preset-web-fonts.css')
+  await expect(css).toMatchFileSnapshot('./assets/output/preset-web-fonts.css')
 })
 
 it('web-fonts (inline: true)', async () => {
@@ -132,6 +132,7 @@ it('createLocalFontProcessor', async () => {
         },
         processors: [
           createLocalFontProcessor({
+            cacheDir: 'test/.cache/fonts',
             fontAssetsDir: 'test/assets/fonts',
             fontServeBaseUrl: '/__base__/fonts',
           }),
@@ -144,7 +145,7 @@ it('createLocalFontProcessor', async () => {
 
   expect(css).includes('url(/__base__/fonts/')
 
-  expect(css)
+  await expect(css)
     .toMatchFileSnapshot('./assets/output/preset-web-fonts-local.css')
 })
 

@@ -9,15 +9,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@iconify-json/ph": "^1.2.1",
-    "@unocss/core": "link:../../packages/core",
-    "@unocss/preset-attributify": "link:../../packages/preset-attributify",
-    "@unocss/preset-icons": "link:../../packages/preset-icons",
-    "@unocss/preset-uno": "link:../../packages/preset-uno",
-    "lightningcss": "^1.28.2",
-    "typescript": "^5.7.2",
-    "unocss": "link:../../packages/unocss",
-    "vite": "^6.0.2"
+    "@iconify-json/ph": "^1.2.2",
+    "@unocss/core": "link:../../packages-engine/core",
+    "@unocss/preset-attributify": "link:../../packages-presets/preset-attributify",
+    "@unocss/preset-icons": "link:../../packages-presets/preset-icons",
+    "@unocss/preset-uno": "link:../../packages-presets/preset-uno",
+    "lightningcss": "^1.29.1",
+    "typescript": "^5.7.3",
+    "unocss": "link:../../packages-presets/unocss",
+    "vite": "^6.1.0"
   },
   "stackblitz": {
     "installDependencies": false,

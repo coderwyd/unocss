@@ -43,19 +43,18 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: corepack enable
-
-      - name: Setup
-        run: npm i -g @antfu/ni
-
       - name: Install
-        run: nci
+        run: pnpm install
 
       - name: Build
-        run: nr build
+        run: pnpm build
 
       - name: Test
-        run: nr test
+        run: pnpm test
 
       - name: Typecheck
-        run: nr typecheck
+        run: pnpm typecheck
+
+      - name: Check types
+        if: runner.os == 'Linux' && matrix.node_version == 'lts/*'
+        run: pnpm test:attw

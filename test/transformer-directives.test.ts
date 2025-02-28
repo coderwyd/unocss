@@ -8,7 +8,7 @@ import MagicString from 'magic-string'
 import parserCSS from 'prettier/parser-postcss'
 import prettier from 'prettier/standalone'
 import { describe, expect, it } from 'vitest'
-import { transformDirectives } from '../packages/transformer-directives/src/transform'
+import { transformDirectives } from '../packages-presets/transformer-directives/src/transform'
 
 describe('transformer-directives', async () => {
   const uno = await createGenerator({
@@ -516,13 +516,13 @@ describe('transformer-directives', async () => {
     })
 
     it('non-exist', async () => {
-      expect(async () => await transform(
+      await expect(async () => await transform(
         `.btn {
         color: theme("color.none.500");
         }`,
       )).rejects.toMatchInlineSnapshot(`[Error: theme of "color.none.500" did not found]`)
 
-      expect(async () => await transform(
+      await expect(async () => await transform(
         `.btn {
           font-size: theme("size.lg");
           }`,
@@ -530,7 +530,7 @@ describe('transformer-directives', async () => {
     })
 
     it('args', async () => {
-      expect(async () => await transform(
+      await expect(async () => await transform(
         `.btn {
           color: theme();
         }`,
@@ -1153,13 +1153,13 @@ describe('transformer-directives with important', async () => {
     })
 
     it('non-exist', async () => {
-      expect(async () => await transform(
+      await expect(async () => await transform(
         `.btn {
         color: theme("color.none.500");
         }`,
       )).rejects.toMatchInlineSnapshot(`[Error: theme of "color.none.500" did not found]`)
 
-      expect(async () => await transform(
+      await expect(async () => await transform(
         `.btn {
           font-size: theme("size.lg");
           }`,
@@ -1167,7 +1167,7 @@ describe('transformer-directives with important', async () => {
     })
 
     it('args', async () => {
-      expect(async () => await transform(
+      await expect(async () => await transform(
         `.btn {
           color: theme();
         }`,

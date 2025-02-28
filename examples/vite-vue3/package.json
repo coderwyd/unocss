@@ -11,15 +11,15 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.2.3",
-    "@unocss/core": "link:../../packages/core",
-    "@unocss/preset-attributify": "link:../../packages/preset-attributify",
-    "@unocss/preset-icons": "link:../../packages/preset-icons",
-    "@unocss/preset-web-fonts": "link:../../packages/preset-web-fonts",
+    "@iconify-json/logos": "^1.2.4",
+    "@unocss/core": "link:../../packages-engine/core",
+    "@unocss/preset-attributify": "link:../../packages-presets/preset-attributify",
+    "@unocss/preset-icons": "link:../../packages-presets/preset-icons",
+    "@unocss/preset-web-fonts": "link:../../packages-presets/preset-web-fonts",
     "@vitejs/plugin-vue": "^5.2.1",
-    "typescript": "^5.7.2",
-    "unocss": "link:../../packages/unocss",
-    "vite": "^6.0.2"
+    "typescript": "^5.7.3",
+    "unocss": "link:../../packages-presets/unocss",
+    "vite": "^6.1.0"
   },
   "stackblitz": {
     "installDependencies": false,
